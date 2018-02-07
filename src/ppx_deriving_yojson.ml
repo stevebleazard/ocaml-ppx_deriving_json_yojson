@@ -4,7 +4,7 @@ open Asttypes
 open Parsetree
 open Ast_helper
 open Ast_convenience
-module P = Ppx_deriving_json
+module P = Ppx_deriving_json_lib.Ppx_deriving_json
 
 module Yojson_deriver : P.Json_deriver = struct
   let name = "yojson"
@@ -14,7 +14,7 @@ module Yojson_deriver : P.Json_deriver = struct
   let is_value_type = function
     | [%type: Yojson.Safe.json] -> true
     | _ -> false
-  let runtime_module = "Ppx_deriving_json_yojson_runtime"
+  let runtime_module = "Ppx_deriving_json_lib_runtime"
   let fields_module = "Yojson_fields"
   let encode_float_function _attrs =
     [%expr fun x -> `Float x]
@@ -25,8 +25,6 @@ module Yojson_deriver : P.Json_deriver = struct
   let encode_int_function _attrs =
     [%expr fun x -> `Int x]
   let encode_int32_function _attrs =
-    (* XXX why is it different from int64/nativeint?
-       (because it would always be representatble as a float?) *)
     [%expr fun x -> `Intlit (Int32.to_string x)]
   let encode_int64_function attrs =
     encode_integer_according_to_attributes [%expr Int64.to_string] attrs
@@ -46,8 +44,6 @@ module Yojson_deriver : P.Json_deriver = struct
   let decode_int_function _attrs =
     [[%pat? `Int x], [%expr Result.Ok x]]
   let decode_int32_function _attrs =
-    (* XXX why is it different from int64/nativeint?
-       (because it would always be representatble as a float?) *)
     [[%pat? `Int x],    [%expr Result.Ok (Int32.of_int x)];
      [%pat? `Intlit x], [%expr Result.Ok (Int32.of_string x)]]
   let decode_int64_function attrs =
