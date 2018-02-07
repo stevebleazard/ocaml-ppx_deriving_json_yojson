@@ -1,9 +1,9 @@
-deriving json library
-=====================
+[@@deriving yojson]
+===================
 
-_deriving Yojson_ is a [ppx_deriving][pd] plugin library that generates
-[JSON][] serializers and deserializes from an OCaml type definition.
-The generator is is independent of the [JSON][] encoder / decoder library
+_deriving Yojson_ is a [ppx_deriving][pd] plugin that generates
+[JSON][] serializers and deserializes that use the [Yojson][] library
+from an OCaml type definition.
 
 [pd]: https://github.com/whitequark/ppx_deriving
 [json]: http://tools.ietf.org/html/rfc4627
@@ -12,14 +12,14 @@ The generator is is independent of the [JSON][] encoder / decoder library
 Installation
 ------------
 
-*deriving json_lib* can be installed via [OPAM](https://opam.ocaml.org):
+_deriving Yojson_ can be installed via [OPAM](https://opam.ocaml.org):
 
-    $ opam install ppx_deriving_json_lib
+    $ opam install ppx_deriving_json_yojson
 
 Usage
 -----
 
-In order to use _deriving yojson_, require the package `ppx_deriving_yojson`.
+In order to use _deriving yojson_, require the package `ppx_deriving_json_yojson`.
 
 Syntax
 ------
