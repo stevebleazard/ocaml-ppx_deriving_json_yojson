@@ -1,0 +1,4 @@
+JSON codec generator using yojson for OCaml >=4.02
+
+ppx_deriving_json_yojson is a ppx_deriving plugin providing a
+JSON codec generator using the yojson encoder / decoder library

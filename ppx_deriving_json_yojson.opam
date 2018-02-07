@@ -1,0 +1,22 @@
+opam-version: "1.2"
+maintainer: "Steve Bleazard <stevebleazard@googlemail.com>"
+authors: "Steve Bleazard <stevebleazard@googlemail.com>"
+homepage: "https://github.com/stevebleazard/ocaml-ppx_deriving_json_yojson"
+bug-reports: "https://github.com/stevebleazard/ocaml-ppx_deriving_json_yojson/issues"
+license: "MIT"
+dev-repo: "git://github.com/stevebleazard/ocaml-ppx_deriving_json_yojson.git"
+doc: "http://stevebleazard.github.io/ocaml-ppx_deriving_json_yojson"
+tags: [ "syntax" "json" ]
+build: [
+  ["jbuilder" "build" "-p" name "-j" jobs "@install"]
+]
+depends: [
+  "yojson"
+  "result"
+  "ppx_deriving" {>= "4.0" & < "5.0"}
+  "ocamlfind" {build}
+  "ocamlbuild" {build}
+  "ppxfind" {build}
+  "ounit"        {test}
+  "ppx_import"   {test & >= "1.1"}
+]
