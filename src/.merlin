@@ -1,18 +1,12 @@
-STDLIB /j/office/app/ocaml/builds/4.05.0-1-cent6_20171109_170226GMT/lib/ocaml
-FLG -w @a-4-29-40-41-42-44-45-48-52-56-58-59-60-6-9-27-33-39 -strict-sequence -short-paths
-FLG -attributes-allowed
-FLG -ppx '/usr/local/home/sbleazard/OCaml/workspace/jane/ppx_deriving_jsonm/+share+/.ppx/ppx_tools_metaquot/ppx.exe -as-ppx -no-check-on-extensions'
-FLG -open Ppx_deriving_json_yojson__
+B ../_build/default/src
+FLG -open Ppx_deriving_json_yojson -w -40
 PKG compiler-libs
-B ../../result
-S ../../result
-B ../../ppx_tools/lib
-S ../../ppx_tools/lib
-B ../../ppx_derivers/src
-S ../../ppx_derivers/src
-B ../../ocaml-migrate-parsetree/src
-S ../../ocaml-migrate-parsetree/src
-B ../../ppx_deriving/src
-S ../../ppx_deriving/src
-B ../src
-S ../src
+PKG compiler-libs.common
+PKG dynlink
+PKG ocaml-migrate-parsetree
+PKG ppx_derivers
+PKG ppx_deriving.api
+PKG ppx_deriving_json_lib
+PKG ppx_tools
+PKG result
+S .
