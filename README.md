@@ -1,7 +1,7 @@
 [@@deriving yojson]
 ===================
 
-_deriving Yojson_ is a [ppx_deriving][pd] plugin that generates
+_deriving yojson_ is a [ppx_deriving][pd] plugin that generates
 [JSON][] serializers and deserializes that use the [Yojson][] library
 from an OCaml type definition.
 
