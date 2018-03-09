@@ -2,7 +2,7 @@
 
 (library
  ((name ppx_deriving_json_yojson)
-  (public_name ppx_deriving_json_yojson.api)
+  (public_name ppx_deriving_json_yojson)
   (libraries (result ppx_deriving_json_lib))
   (preprocess (action (run ppxfind -legacy ppx_tools.metaquot --as-pp ${<})))
   (ppx_runtime_libraries (ppx_deriving_json_lib.runtime))
